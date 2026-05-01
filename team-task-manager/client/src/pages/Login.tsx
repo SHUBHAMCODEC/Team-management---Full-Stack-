@@ -15,6 +15,7 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      console.log('Attempting login with:', { email, endpoint: '/auth/login' });
       const res = await API.post('/auth/login', { email, password });
       login(res.data.token, res.data.user);
       navigate('/dashboard');

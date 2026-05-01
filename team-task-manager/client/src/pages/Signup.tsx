@@ -17,6 +17,7 @@ const Signup: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      console.log('Attempting signup with:', { email, endpoint: '/auth/register' });
       const res = await API.post('/auth/register', { name, email, password, role });
       login(res.data.token, res.data.user);
       navigate('/dashboard');
